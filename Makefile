@@ -5,9 +5,12 @@ LLVMREL := llvm-15-release
 
 all: $(LLVMDEV).tar.xz $(LLVMREL).tar.xz
 
-$(LLVMDEV).tar.xz $(LLVMREL).tar.xz: $(LLVMSRC).tar.xz
-	bash build_llvm.sh
+$(LLVMDEV).tar.xz: $(LLVMSRC).tar.xz
+	bash build_llvm.sh dev
 	tar cfJ $(LLVMDEV).tar.xz $(LLVMDEV)
+
+$(LLVMREL).tar.xz: $(LLVMSRC).tar.xz
+	bash build_llvm.sh opt
 	tar cfJ $(LLVMREL).tar.xz $(LLVMREL)
 
 $(LLVMSRC).tar.xz:
