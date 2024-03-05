@@ -17,3 +17,6 @@ wipe:
 	rm -rf llvm-15-release* llvm-15-release+assert* cmake
 
 .PHONY: all clean format wipe
+
+.NOTPARALLEL:
+

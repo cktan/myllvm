@@ -1,4 +1,4 @@
-set -e
+set -e 
 
 function fatal
 {
@@ -31,9 +31,9 @@ case $TARGET in
 esac
 echo TARGET is $TARGET
 
-rm -rf cmake cmake-15.0.7.src 2> /dev/null
-tar xf cmake-15.0.7.src.tar.xz
-mv cmake-15.0.7.src cmake
+#rm -rf cmake cmake-15.0.7.src 2> /dev/null
+#tar xf cmake-15.0.7.src.tar.xz
+#mv cmake-15.0.7.src cmake
 
 
 ##########################
