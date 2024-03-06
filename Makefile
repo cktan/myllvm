@@ -1,19 +1,21 @@
 TOPDIR = ..
-LLVMSRC = llvm-15.0.7.src
+LLVMSRCTARXZ = llvm-15.0.7.src.tar.xz
 LLVMDEV := llvm-15-release+assert
-LLVMREL := llvm-15-release
+LLVMOPT := llvm-15-release
 
-all: $(LLVMDEV).tar.xz $(LLVMREL).tar.xz
+all: $(LLVMDEV).tar.xz $(LLVMOPT).tar.xz
 
-$(LLVMDEV).tar.xz: $(LLVMSRC).tar.xz
+$(LLVMDEV).tar.xz: $(LLVMSRCTARXZ)
+	echo building dev
 	bash build_llvm.sh dev
-	tar cfJ $(LLVMDEV).tar.xz $(LLVMDEV)
+	tar cfJ $@ $(LLVMDEV)
 
-$(LLVMREL).tar.xz: $(LLVMSRC).tar.xz
+$(LLVMOPT).tar.xz: $(LLVMSRCTARXZ)
+	echo building opt
 	bash build_llvm.sh opt
-	tar cfJ $(LLVMREL).tar.xz $(LLVMREL)
+	tar cfJ $@ $(LLVMOPT)
 
-$(LLVMSRC).tar.xz:
+$(LLVMSRCTARXZ):
 	wget https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/llvm-15.0.7.src.tar.xz
 
 wipe:
