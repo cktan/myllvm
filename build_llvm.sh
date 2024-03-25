@@ -17,7 +17,7 @@ TARGET=$(python3 -c 'import platform; print(platform.processor())')
 
 case $TARGET in 
 
-    arm) 
+    arm | aarch64 ) 
 	TARGET="AArch64"
 	;;
 
