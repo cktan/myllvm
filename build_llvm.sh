@@ -35,7 +35,7 @@ rm -rf cmake cmake-15.0.7.src 2> /dev/null
 tar xf cmake-15.0.7.src.tar.xz
 mv cmake-15.0.7.src cmake
 
-if [ $1 == "dev" ]; then 
+if [ "$1" == "dev" ]; then 
     ##########################
     # assert on
     echo Building DEV in $DEVDIR
@@ -51,7 +51,7 @@ if [ $1 == "dev" ]; then
 			-DLLVM_ENABLE_ASSERTIONS=On \
 			.. &&
 	(make -j8 || make -j8 || make -j4 || make) && make install)  || fatal $DEVDIR
-elif [ $1 == "opt" ]; then 
+elif [ "$1" == "opt" ]; then 
     ##########################
     # assert off
     echo Building OPT in $OPTDIR
